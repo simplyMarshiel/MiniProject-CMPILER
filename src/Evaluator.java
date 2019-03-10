@@ -33,9 +33,9 @@ public class Evaluator{
 						operator.pop();
 					}else{
 						if(!operator.isEmpty()){
-							if(val.get(operator.peek()) > val.get(c)){
+							if(val.get(operator.peek()) >= val.get(c)){
 								//if current stack top is + - and u try to insert */ or %
-								while(!operator.isEmpty() && val.get(operator.peek()) > val.get(c)){
+								while(!operator.isEmpty() && val.get(operator.peek()) >= val.get(c)){
 									//push to operand the thingy
 									operand.push(operator.pop()+"");
 								}
@@ -64,8 +64,8 @@ public class Evaluator{
 							case '+':tans = Math.addExact(x,y);break;
 							case '-':tans = Math.subtractExact(x,y);break;
 							case '/':
-								if(x != 0)
-									tans = y/x;
+								if(y != 0)
+									tans = x/y;
 								else{
 									System.out.println("Cannot divide by 0.");
 									return -999;
@@ -73,8 +73,8 @@ public class Evaluator{
 							break;
 							case '*':tans = Math.multiplyExact(x,y);break;
 							case '%':
-								if(x != 0)
-									tans = y%x;
+								if(y != 0)
+									tans = x%y;
 
 								else{
 									System.out.println("Cannot modulo by 0.");
