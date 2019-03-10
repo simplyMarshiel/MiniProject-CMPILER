@@ -73,9 +73,10 @@ public class Evaluator{
 							break;
 							case '*':tans = Math.multiplyExact(x,y);break;
 							case '%':
-								if(y != 0)
-									tans = x%y;
-
+								if(y != 0){
+									int r = x%y;
+									tans = r < 0 ? r + y : r;
+								}
 								else{
 									System.out.println("Cannot modulo by 0.");
 									return -999;
